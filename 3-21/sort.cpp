@@ -90,6 +90,52 @@ void SelectSort(int *a, int n)
 
 void AdjustDwon(int *a, int n, int root)
 {
+    int child = root * 2 + 1;
+    while (child < n)
+    {
+        if (child + 1 < n && a[child] < a[child + 1])
+            child++;
+        if (a[child] > a[root])
+        {
+            std::swap(a[child], a[root]);
+            root = child;
+            child = root * 2 + 1;
+        }
+        else
+            break;
+    }
+}
+
+void HeapSort(int *a, int n)
+{
+    for (int i = (n - 1 - 1) / 2; i >= 0; --i)
+    {
+        AdjustDwon(a, n, i);
+    }
+    int end = n - 1;
+    while (end > 0)
+    {
+        std::swap(a[0], a[end]);
+        AdjustDwon(a, end, 0);
+        end--;
+    }
+    printarray(a, n);
+}
+
+void BubbleSort(int *a, int n)
+{
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 1; j < n - i; j++)
+        {
+            /* code */
+            if (a[j] < a[j - 1])
+            {
+                std::swap(a[j], a[j - 1]);
+            }
+        }
+    }
+    printarray(a, n);
 }
 
 void testSort()
@@ -98,7 +144,9 @@ void testSort()
     int n = sizeof(a) / sizeof(a[0]);
     // InsertSort(a, n);
     // ShellSort(a, n);
-    SelectSort(a, n);
+    // SelectSort(a, n);
+    // HeapSort(a, n);
+    BubbleSort(a, n);
 }
 
 int main()
