@@ -1,9 +1,12 @@
 #pragma once
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <string.h>
+#include <stack>
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+#include <algorithm>
+#include <ctime>
+#include <memory>
 
 void printarray(int *a, int sz);
 
