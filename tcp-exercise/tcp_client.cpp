@@ -45,11 +45,11 @@ int main(int argc, char *argv[])
             perror("write fail");
             exit(-1);
         }
-        std::cout << "n:" << n << std::endl;
+        // std::cout << "n:" << n << std::endl;
 
         // send
         char buf[1024] = {0};
-        int len = read(sock, buf, n);
+        int len = read(sock, buf, 1024);
         if (len > 0)
         {
             buf[len] = 0;

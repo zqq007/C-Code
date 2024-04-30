@@ -87,7 +87,7 @@ public:
                     buf[n] = 0;
                     std::cout << "client: " << buf << std::endl;
 
-                    send(listensock_, buf, sizeof(buf), 0);
+                    write(listensock_, buf, sizeof(buf));
                 }
                 else if (n == 0)
                 {
